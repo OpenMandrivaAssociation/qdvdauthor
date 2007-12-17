@@ -15,7 +15,6 @@ Requires:	dvdauthor
 Requires:	mjpegtools
 Requires:	sox
 Requires:	dvd-slideshow		>= 0.8.0
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 'Q' DVD-Author is a GUI frontend for dvdauthor and related tools. The goal is
