@@ -1,11 +1,11 @@
 Summary: 	GUI to create DVD menus and images from media files
 Name: 	 	qdvdauthor
-Version: 	0.1.5
+Version: 	1.0.0
 Release:	%mkrel 1
 License:	GPL
 Group:		Video
 URL:		http://qdvdauthor.sourceforge.net/
-Source:		http://downloads.sourceforge.net/qdvdauthor/%{name}-%{version}.tar.bz2
+Source:		http://downloads.sourceforge.net/qdvdauthor/%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
 BuildRequires:	ImageMagick-devel 
 BuildRequires:	libqt-devel		>= 3.3.7
@@ -30,12 +30,10 @@ menus, slideshows, and videos to burn on a DVD under Linux.
 find -name CVS* | xargs rm -dr
 
 %build
-
 ./configure \
 	--build-qplayer \
 	--build-qslideshow \
 	--with-xine-support \
-	--with-mplayer-support \
 	--prefix=/usr \
 	--qt-dir=%{_prefix}/lib/qt3
 
@@ -84,15 +82,19 @@ convert %{name}.png -size 48x48 %{buildroot}/%{_liconsdir}/%{name}.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
 %dir %{_datadir}/%{name}
+%lang(ca) %{_datadir}/%{name}/qdvdauthor_ca.qm
 %lang(de) %{_datadir}/%{name}/qdvdauthor_de.qm
+%lang(eo) %{_datadir}/%{name}/qdvdauthor_eo.qm
 %lang(es) %{_datadir}/%{name}/qdvdauthor_es.qm
 %lang(fr) %{_datadir}/%{name}/qdvdauthor_fr.qm
+%lang(it) %{_datadir}/%{name}/qdvdauthor_it.qm
 %lang(pl) %{_datadir}/%{name}/qdvdauthor_pl.qm
+%lang(ca) %{_datadir}/%{name}/qplayer_ca.qm
 %lang(de) %{_datadir}/%{name}/qplayer_de.qm
 %lang(es) %{_datadir}/%{name}/qplayer_es.qm
 %lang(fr) %{_datadir}/%{name}/qplayer_fr.qm
+%lang(ca) %{_datadir}/%{name}/qslideshow_ca.qm
 %lang(de) %{_datadir}/%{name}/qslideshow_de.qm
 %lang(es) %{_datadir}/%{name}/qslideshow_es.qm
 %lang(fr) %{_datadir}/%{name}/qslideshow_fr.qm
-
 
