@@ -61,17 +61,13 @@ convert %{name}.png -size 48x48 %{buildroot}/%{_liconsdir}/%{name}.png
 
 %post
 %{update_menus}
-%if %mdkversion >= 200700
 %{update_desktop_database}
 %update_icon_cache hicolor
-%endif
 
 %postun
 %{clean_menus}
-%if %mdkversion >= 200700
 %{clean_desktop_database}
 %clean_icon_cache hicolor
-%endif
 
 %files
 %defattr(644,root,root,755)
