@@ -1,6 +1,6 @@
 Summary: 	GUI to create DVD menus and images from media files
 Name: 	 	qdvdauthor
-Version: 	1.0.0
+Version: 	1.2.0
 Release:	%mkrel 1
 License:	GPL
 Group:		Video
@@ -8,7 +8,7 @@ URL:		http://qdvdauthor.sourceforge.net/
 Source:		http://downloads.sourceforge.net/qdvdauthor/%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
 BuildRequires:	ImageMagick-devel 
-BuildRequires:	libqt-devel		>= 3.3.7
+BuildRequires:	libqt3-devel		>= 3.3.7
 BuildRequires:	libxine-devel
 BuildRequires:	ImageMagick
 Requires:	dvdauthor
@@ -93,8 +93,11 @@ convert %{name}.png -size 48x48 %{buildroot}/%{_liconsdir}/%{name}.png
 %lang(de) %{_datadir}/%{name}/qplayer_de.qm
 %lang(es) %{_datadir}/%{name}/qplayer_es.qm
 %lang(fr) %{_datadir}/%{name}/qplayer_fr.qm
+%lang(ca) %{_datadir}/%{name}/qrender_ca.qm
+%lang(de) %{_datadir}/%{name}/qrender_de.qm
+%lang(es) %{_datadir}/%{name}/qrender_es.qm
 %lang(ca) %{_datadir}/%{name}/qslideshow_ca.qm
 %lang(de) %{_datadir}/%{name}/qslideshow_de.qm
 %lang(es) %{_datadir}/%{name}/qslideshow_es.qm
 %lang(fr) %{_datadir}/%{name}/qslideshow_fr.qm
-
+%lang(it) %{_datadir}/%{name}/qslideshow_it.qm
