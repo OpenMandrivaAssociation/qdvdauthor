@@ -1,11 +1,11 @@
 Summary: 	GUI to create DVD menus and images from media files
 Name: 	 	qdvdauthor
-Version: 	1.2.0
-Release:	%mkrel 3
+Version: 	1.5.0
+Release:	%mkrel 1
 License:	GPL
 Group:		Video
 URL:		http://qdvdauthor.sourceforge.net/
-Source:		http://downloads.sourceforge.net/qdvdauthor/%{name}-%{version}.tar.gz
+Source:		%{name}-%{version}-2.tar.gz
 Patch0:		%{name}-desktop.patch
 BuildRequires:	ImageMagick-devel 
 BuildRequires:	libqt3-devel		>= 3.3.7
