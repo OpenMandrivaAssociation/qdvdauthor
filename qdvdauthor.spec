@@ -1,7 +1,7 @@
 Summary: 	GUI to create DVD menus and images from media files
 Name: 	 	qdvdauthor
 Version: 	1.5.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Video
 URL:		http://qdvdauthor.sourceforge.net/
@@ -40,13 +40,14 @@ find -name CVS* | xargs rm -dr
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
-install -d %{buildroot}{%{_bindir},%{_datadir}/qdvdauthor,%{_datadir}/applications}
+mkdir -p %buildroot/%{_bindir}
+mkdir -p %buildroot/%{_datadir}/qdvdauthor
+mkdir -p %buildroot/%{_datadir}/applications
+mkdir -p %buildroot/%{_datadir}/pixmaps
 
-install bin/%{name} %{buildroot}%{_bindir}/
-install bin/qplayer %{buildroot}%{_bindir}/
-install bin/qslideshow %{buildroot}%{_bindir}/
-install %{name}.desktop %{buildroot}%{_datadir}/applications/
-install qdvdauthor/i18n/*.qm %{buildroot}%{_datadir}/qdvdauthor/
+make install INSTALL_ROOT=%buildroot
+cp %name.png %buildroot/%_datadir/pixmaps/
+cp %name.desktop %buildroot/%_datadir/applications/
 
 mkdir -p %{buildroot}/%{_iconsdir}
 mkdir -p %{buildroot}/%{_miconsdir}
@@ -78,26 +79,8 @@ convert %{name}.png -size 48x48 %{buildroot}/%{_liconsdir}/%{name}.png
 %doc README TODO CHANGELOG doc/*
 %attr(755,root,root) %{_bindir}/q*
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/pixmaps/*.png
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
-%dir %{_datadir}/%{name}
-%lang(ca) %{_datadir}/%{name}/qdvdauthor_ca.qm
-%lang(de) %{_datadir}/%{name}/qdvdauthor_de.qm
-%lang(eo) %{_datadir}/%{name}/qdvdauthor_eo.qm
-%lang(es) %{_datadir}/%{name}/qdvdauthor_es.qm
-%lang(fr) %{_datadir}/%{name}/qdvdauthor_fr.qm
-%lang(it) %{_datadir}/%{name}/qdvdauthor_it.qm
-%lang(pl) %{_datadir}/%{name}/qdvdauthor_pl.qm
-%lang(ca) %{_datadir}/%{name}/qplayer_ca.qm
-%lang(de) %{_datadir}/%{name}/qplayer_de.qm
-%lang(es) %{_datadir}/%{name}/qplayer_es.qm
-%lang(fr) %{_datadir}/%{name}/qplayer_fr.qm
-%lang(ca) %{_datadir}/%{name}/qrender_ca.qm
-%lang(de) %{_datadir}/%{name}/qrender_de.qm
-%lang(es) %{_datadir}/%{name}/qrender_es.qm
-%lang(ca) %{_datadir}/%{name}/qslideshow_ca.qm
-%lang(de) %{_datadir}/%{name}/qslideshow_de.qm
-%lang(es) %{_datadir}/%{name}/qslideshow_es.qm
-%lang(fr) %{_datadir}/%{name}/qslideshow_fr.qm
-%lang(it) %{_datadir}/%{name}/qslideshow_it.qm
+%{_datadir}/%{name}
