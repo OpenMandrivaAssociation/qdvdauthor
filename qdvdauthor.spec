@@ -8,7 +8,7 @@ URL:		http://qdvdauthor.sourceforge.net/
 Source:		%{name}-%{version}-2.tar.gz
 Patch0:		%{name}-desktop.patch
 BuildRequires:	ImageMagick-devel 
-BuildRequires:	libqt3-devel		>= 3.3.7
+BuildRequires:	qt3-devel		>= 3.3.7
 BuildRequires:	libxine-devel
 BuildRequires:	ImageMagick
 Requires:	dvdauthor
