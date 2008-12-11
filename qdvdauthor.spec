@@ -7,10 +7,10 @@ Group:		Video
 URL:		http://qdvdauthor.sourceforge.net/
 Source:		%{name}-%{version}-2.tar.gz
 Patch0:		%{name}-desktop.patch
-BuildRequires:	ImageMagick-devel 
+BuildRequires:	imagemagick-devel 
 BuildRequires:	qt3-devel		>= 3.3.7
 BuildRequires:	libxine-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 Requires:	dvdauthor
 Requires:	mjpegtools
 Requires:	sox
