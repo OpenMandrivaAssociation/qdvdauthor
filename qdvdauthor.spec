@@ -1,20 +1,24 @@
 Summary: 	GUI to create DVD menus and images from media files
 Name: 	 	qdvdauthor
-Version: 	1.5.0
-Release:	%mkrel 3
-License:	GPL
+Version: 	2.1.0
+Release:	%mkrel 1
+License:	GPLv2
 Group:		Video
 URL:		http://qdvdauthor.sourceforge.net/
-Source:		%{name}-%{version}-2.tar.gz
+Source:		http://downloads.sourceforge.net/qdvdauthor/%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
-BuildRequires:	imagemagick-devel 
 BuildRequires:	qt3-devel		>= 3.3.7
-BuildRequires:	libxine-devel
+BuildRequires:	qt4-devel
+BuildRequires:	ffmpeg-devel
 BuildRequires:	imagemagick
-Requires:	dvdauthor
-Requires:	mjpegtools
+BuildRequires:	mjpegtools              >= 1.6.2
+BuildRequires:	dvdauthor               >= 0.6.10
+Buildrequires:	libxine-devel
+BuildRequires:	mplayer			>= 1.0
+Requires:	dvdauthor		>= 0.6.10
+Requires:	mjpegtools		>= 1.6.2
 Requires:	sox
-Requires:	dvd-slideshow		>= 0.8.0
+Suggests:	mplayer			>= 1.0
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -27,15 +31,27 @@ menus, slideshows, and videos to burn on a DVD under Linux.
 %patch0 -p0
 
 #remove all CVS directories
-find -name CVS* | xargs rm -dr
+find -name CVS* | sed '/CVS\/CVS/d' | xargs rm -dr
+
+#fix EOL
+sed -i 's/\r//' doc/todo2.txt doc/lookinto.txt
+
+#adjust some paths to fix build
+for p in complexdvd simpledvd
+do
+  sed -i -e 's:-L/usr/lib$:-L%{_libdir}:' %{name}/plugins/$p/$p.pro
+done
 
 %build
+%define _jobs $(echo %{_smp_mflags}| sed 's:-j:-j :')
 ./configure \
-	--build-qplayer \
-	--build-qslideshow \
-	--with-xine-support \
-	--prefix=/usr \
-	--qt-dir=%{_prefix}/lib/qt3
+	--no-configurator \
+	--omit-local-ffmpeg \
+	--prefix=%{_prefix} \
+	--with-qt-lib=qt-mt \
+	--qt3-dir=%{qt3dir} \
+	--qt4-dir=%{qt4dir} \
+	%{_jobs}
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
