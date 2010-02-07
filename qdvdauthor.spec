@@ -20,6 +20,7 @@ Requires:	mjpegtools		>= 1.6.2
 Requires:	sox
 Suggests:	mplayer			>= 1.0
 Suggests:	dv2sub
+Suggests:	ffmpeg
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
