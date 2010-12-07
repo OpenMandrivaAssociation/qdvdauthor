@@ -1,7 +1,7 @@
 Summary: 	GUI to create DVD menus and images from media files
 Name: 	 	qdvdauthor
 Version: 	2.1.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2
 Group:		Video
 URL:		http://qdvdauthor.sourceforge.net/
