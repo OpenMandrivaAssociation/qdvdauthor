@@ -34,7 +34,7 @@ menus, slideshows, and videos to burn on a DVD under Linux.
 %patch0 -p0
 
 #remove all CVS directories
-find -name CVS* | sed '/CVS\/CVS/d' | xargs rm -dr
+find -name CVS* | sed '/CVS\/CVS/d' | xargs rm -rf
 
 #fix EOL
 sed -i 's/\r//' doc/todo2.txt doc/lookinto.txt
