@@ -4,7 +4,7 @@ Version: 	2.1.0
 Release:	%mkrel 3
 License:	GPLv2
 Group:		Video
-URL:		http://qdvdauthor.sourceforge.net/
+URL:		https://qdvdauthor.sourceforge.net/
 Source:		http://downloads.sourceforge.net/qdvdauthor/%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
 BuildRequires:	qt3-devel		>= 3.3.7
