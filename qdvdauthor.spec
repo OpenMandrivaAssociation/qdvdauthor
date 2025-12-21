@@ -7,6 +7,11 @@ Group:		Video
 URL:		https://qdvdauthor.sourceforge.net/
 Source:		http://downloads.sourceforge.net/qdvdauthor/%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	qt3-devel		>= 3.3.7
 BuildRequires:	qt4-devel
 BuildRequires:	ffmpeg-devel
